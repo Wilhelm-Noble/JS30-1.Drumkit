@@ -9,74 +9,28 @@
 
 
   <div class="keys">
-    <div data-key="65" class="key">
-      <kbd>A</kbd>
-      <span class="sound">clap</span>
-    </div>
-    <div data-key="83" class="key">
-      <kbd>S</kbd>
-      <span class="sound">hihat</span>
-    </div>
-    <div data-key="68" class="key">
-      <kbd>D</kbd>
-      <span class="sound">kick</span>
-    </div>
-    <div data-key="70" class="key">
-      <kbd>F</kbd>
-      <span class="sound">openhat</span>
-    </div>
-    <div data-key="71" class="key">
-      <kbd>G</kbd>
-      <span class="sound">boom</span>
-    </div>
-    <div data-key="72" class="key">
-      <kbd>H</kbd>
-      <span class="sound">ride</span>
-    </div>
-    <div data-key="74" class="key">
-      <kbd>J</kbd>
-      <span class="sound">snare</span>
-    </div>
-    <div data-key="75" class="key">
-      <kbd>K</kbd>
-      <span class="sound">tom</span>
-    </div>
-    <div data-key="76" class="key">
-      <kbd>L</kbd>
-      <span class="sound">tink</span>
-    </div>
+    <div class="key" id="A" onClick="clickHandler('A')"><div class="letter ">A</div><span class="sound">clap</span></div>
+    <div class="key" id="S" onClick="clickHandler('S')"><div class="letter">S</div><span class="sound">hihat</span></div>
+    <div class="key" id="D" onClick="clickHandler('D')"><div class="letter">D</div><span class="sound">kick</span></div>
+    <div class="key" id="F" onClick="clickHandler('F')"><div class="letter">F</div> <span class="sound">openhat</span></div>
+    <div class="key" id="G" onClick="clickHandler('G')"><div class="letter">G</div><span class="sound">boom</span></div>
+    <div class="key" id="H" onClick="clickHandler('H')"><div class="letter">H</div><span class="sound">ride</span></div>
+    <div class="key" id="J" onClick="clickHandler('J')"><div class="letter">J</div><span class="sound">snare</span></div>
+    <div class="key" id="K" onClick="clickHandler('K')"><div class="letter">K</div><span class="sound">tom</span></div>
+    <div class="key" id="L" onClick="clickHandler('L')"><div class="letter">L</div><span class="sound">tink</span></div>
   </div>
 
-  <audio data-key="65" src="resources/sounds/01 - JavaScript Drum Kit_sounds_clap.wav"></audio>
-  <audio data-key="83" src="resources/sounds/01 - JavaScript Drum Kit_sounds_hihat.wav"></audio>
-  <audio data-key="68" src="resources/sounds/01 - JavaScript Drum Kit_sounds_kick.wav"></audio>
-  <audio data-key="70" src="resources/sounds/01 - JavaScript Drum Kit_sounds_openhat.wav"></audio>
-  <audio data-key="71" src="resources/sounds/01 - JavaScript Drum Kit_sounds_boom.wav"></audio>
-  <audio data-key="72" src="resources/sounds/01 - JavaScript Drum Kit_sounds_ride.wav"></audio>
-  <audio data-key="74" src="resources/sounds/01 - JavaScript Drum Kit_sounds_snare.wav"></audio>
-  <audio data-key="75" src="resources/sounds/01 - JavaScript Drum Kit_sounds_tom.wav"></audio>
-  <audio data-key="76" src="resources/sounds/01 - JavaScript Drum Kit_sounds_tink.wav"></audio>
+<audio data-key="A" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/330437/clap.wav"></audio>
+<audio data-key="S" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/330437/hihat.wav"></audio>
+<audio data-key="D" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/330437/kick.wav"></audio>
+<audio data-key="F" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/330437/openhat.wav"></audio>
+<audio data-key="G" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/330437/boom.wav"></audio>
+<audio data-key="H" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/330437/ride.wav"></audio>
+<audio data-key="J" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/330437/snare.wav"></audio>
+<audio data-key="K" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/330437/tom.wav"></audio>
+<audio data-key="L" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/330437/tink.wav"></audio>
 
-<script>
-  function removeTransition(e) {
-    if (e.propertyName !== 'transform') return;
-    e.target.classList.remove('playing');
-  }
-
-  function playSound(e) {
-    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-    const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
-    if (!audio) return;
-
-    key.classList.add('playing');
-    audio.currentTime = 0;
-    audio.play();
-  }
-
-  const keys = Array.from(document.querySelectorAll('.key'));
-  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-  window.addEventListener('keydown', playSound);
-</script>
+<script src="resources/app.js"></script>
 
 
 </body>
